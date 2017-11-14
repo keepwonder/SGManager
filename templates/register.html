@@ -10,6 +10,7 @@
 
 {% block body %}
     <form action="{{ url_for('register') }}" method="post">
+{#    {{ form.csrf_token }}#}
         <div class="columns">
             <div class="column is-4 is-offset-4">
                 <div class="has-text-centered">
@@ -30,9 +31,18 @@
                                 </span>
                             </p>
                         </div>
+
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" type="password" name="confirm" placeholder="请确认密码">
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
                         <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input is-primary" type="email" name="email" placeholder="请输入有效地址">
+                                <input class="input is-primary" type="email" name="email" placeholder="请输入邮箱地址">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-envelope"></i>
                                 </span>
@@ -50,7 +60,10 @@
                             </p>
                         </div>
                         <br>
-                        <input class="button is-primary is-medium" type="submit" value="立即注册"></input>
+                        {% for message in get_flashed_messages() %}
+                            <p style="color: red ;margin-bottom: 10px">{{ message }}</p>
+                        {% endfor %}
+                        <input class="button is-primary is-medium" type="submit" value="立即注册">
                     </div>
                 </div>
             </div>

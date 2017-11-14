@@ -4,11 +4,11 @@
 # @file  : manager.py
 # @time  : 2017/11/06 16:13:02
 # @description：
-from flask_script import Manager, Command, Server
+from flask_script import Manager, Server
 from flask_migrate import Migrate, MigrateCommand
-from sgmanager import app
+from main import app
 from ext import db
-from models import User
+from models import User, Book
 
 manager = Manager(app)
 migrate = Migrate(app, db)
@@ -21,7 +21,8 @@ manager.add_command('db', MigrateCommand)
 def make_shell_context():
     return dict(app=app,
                 db=db,
-                User=User)
+                User=User,
+                Book=Book)
 
 
 if __name__ == '__main__':

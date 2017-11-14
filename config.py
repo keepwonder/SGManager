@@ -9,6 +9,15 @@ import os
 
 
 class BaseConfig(object):
+    # session需要设置secret_key
+    SECRET_KEY = os.urandom(24)
+
+    # 汉化后台flask-admin管理系统界面
+    BABEL_DEFAULT_LOCALE = 'zh_CN'
+    BABEL_DEFAULT_TIMEZONE = 'UTC+8'
+
+
+class ProConfig(BaseConfig):
     pass
 
 
@@ -16,7 +25,7 @@ class DevConfig(BaseConfig):
     # 开启调试模式
     DEBUG = True
 
-    # 数据库配置
+    # mysql数据库配置
     DIALECT = 'mysql'
     DRIVER = 'pymysql'
     USERNAME = 'root'
@@ -32,6 +41,3 @@ class DevConfig(BaseConfig):
                                                                            PORT,
                                                                            DATABASE)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-    # session需要设置secret_key
-    SECRET_KEY = os.urandom(24)
