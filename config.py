@@ -14,16 +14,16 @@ class BaseConfig(object):
 
 class DevConfig(BaseConfig):
     # 开启调试模式
-    DEBUG = True
+    DEBUG = False
 
     # 数据库配置
     DIALECT = 'mysql'
     DRIVER = 'pymysql'
-    USERNAME = 'root'
-    PASSWORD = 'root'
+    USERNAME = 'usg'
+    PASSWORD = 'psg'
     HOST = '127.0.0.1'
     PORT = '3306'
-    DATABASE = 'sgmanager'
+    DATABASE = 'dbsg'
     SQLALCHEMY_DATABASE_URI = '{}+{}://{}:{}@{}:{}/{}?charset=utf8'.format(DIALECT,
                                                                            DRIVER,
                                                                            USERNAME,
