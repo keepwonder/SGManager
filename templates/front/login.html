@@ -1,15 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'front/base.html' %}
+{% from 'front/_macros.html' import static %}
 
 {% block title %}
     登录
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ static('css/login.css') }}">
 {% endblock %}
 
 {% block body %}
-    <form action="{{ url_for('login') }}" method="POST">
+    <form action="{{ url_for('front.login') }}" method="POST">
         <div class="columns">
             <div class="column is-4 is-offset-4">
                 <div class="has-text-centered">
@@ -31,6 +32,12 @@
                                 </span>
                             </p>
                         </div>
+                        <div class="field">
+                            <label class="checkbox">
+                                <input type="checkbox" name="remember" value="1">
+                                记住我
+                            </label>
+                        </div>
                         {% if not username and not password %}
                             <p style="color: red ;margin-bottom: 10px">{{ get_flashed_messages()[0] }}</p>
                         {% else %}
@@ -39,7 +46,7 @@
 
                         <input class="button is-primary  is-medium" type="submit" value="登录">
                         <p class="go-register">没有账号？
-                            <a style="color: #00b89c;" href="{{ url_for('register') }}">立即注册&nbsp;
+                            <a style="color: #00b89c;" href="{{ url_for('front.register') }}">立即注册&nbsp;
                                 <i class="fa fa-long-arrow-right"></i>
                             </a>
                         </p>
@@ -47,5 +54,8 @@
                 </div>
             </div>
         </div>
+{#        {% for message in get_flashed_messages() %}#}
+{#            <p style="color: red ;margin-bottom: 10px">{{ message }}</p>#}
+{#        {% endfor %}#}
     </form>
 {% endblock %}

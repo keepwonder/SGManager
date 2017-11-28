@@ -1,28 +1,28 @@
-#!usr/bin/env python  
-# -*- coding:utf-8 -*-  
-# @author: Johnathon Qiang
-# @file  : models.py 
-# @time  : 2017/11/06 16:01:21
-# @description：
 from ext import db
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(50), nullable=False)
-    password = db.Column(db.String(50), nullable=False)
+    _password = db.Column(db.String(100), nullable=False)
     phone = db.Column(db.String(11), nullable=False)
     email = db.Column(db.String(50), nullable=False)
     create_time = db.Column(db.DateTime, default=datetime.now)
     books = db.relationship('Book', backref=db.backref('users'), lazy='dynamic')
 
-    # def __init__(self, username):
-    #     self.username = username
-    #
-    # def __repr__(self, username):
-    #     return '<Model User: %r>'.format(self.username)
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, raw_password):
+        self._password = generate_password_hash(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password_hash(self.password, raw_password)
 
 
 class Book(db.Model):
@@ -42,9 +42,3 @@ class Book(db.Model):
     book_profile = db.Column(db.Text)
     reading_notes = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    # def __init__(self, book_name):
-    #     self.book_name = book_name
-
-    # def __repr__(self, book_name):
-    #     return '<Model Book: %r>'.format(self.book_name)

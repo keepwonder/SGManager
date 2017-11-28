@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'front/base.html' %}
 
 {% block title %}
     注册
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block body %}
-    <form action="{{ url_for('register') }}" method="post">
+    <form action="{{ url_for('front.register') }}" method="post">
 {#    {{ form.csrf_token }}#}
         <div class="columns">
             <div class="column is-4 is-offset-4">

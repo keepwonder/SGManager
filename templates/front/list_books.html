@@ -1,0 +1,29 @@
+{% extends 'front/base.html' %}
+{% block title %}
+    图书信息
+{% endblock %}
+
+{% block body %}
+
+    {% if user %}
+        {% if books %}
+            {% for book in books %}
+                <p>{{ book.book_name }}</p>
+            {% endfor %}
+            <p>继续<a style="color: #00b89c" href="{{ url_for('front.add_book') }}">添加图书</a></p>
+        {% else %}
+            {{ user.username }}还没有添加过图书，请先 <a style="color: #00b89c" href="{{ url_for('front.add_book') }} ">添加图书</a>
+        {% endif %}
+    {% else %}
+        {% if books %}
+            {% for book in book_random %}
+                <p>{{ book.book_name }}</p>
+            {% endfor %}
+            <a style="color: #00b89c" href="{{ url_for('front.login') }}">登录</a>查看更多图书资源
+        {% else %}
+            系统中还没有一本书,赶紧<a style="color: #00b89c" href="{{ url_for('front.login') }}">登录</a>添加图书吧
+        {% endif %}
+    {% endif %}
+
+
+{% endblock %}

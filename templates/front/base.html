@@ -1,11 +1,12 @@
+{% from 'front/_macros.html' import static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}-人生记录仪</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma-0.6.0/css/bulma.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ static('css/bulma-0.6.0/css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ static('css/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ static('css/base.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -17,7 +18,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-{#                        <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">#}
+                        {# <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">#}
                         我是Logo
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -28,10 +29,10 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="{{ url_for('index') }}">
+                        <a class="navbar-item" href="{{ url_for('front.index') }}">
                             首页
                         </a>
-                        <a class="navbar-item" href="{{ url_for('list_books') }}">
+                        <a class="navbar-item" href="{{ url_for('front.list_book') }}">
                             阅读
                         </a>
                         <a class="navbar-item">
@@ -42,26 +43,26 @@
                         </a>
                         <span class="navbar-item">
                             {% if user %}
-                              <a class="button is-primary is-inverted" href="#">
+                                <a class="button is-primary is-inverted" href="#">
                                 <span class="icon">
                                   <i class="fa fa-user"></i>
                                 </span>
                                 <span>{{ user.username }}</span>
                               </a>&nbsp;
-                              <a class="button is-primary is-inverted" href="{{ url_for('logout')}}">
+                                <a class="button is-primary is-inverted" href="{{ url_for('front.logout') }}">
                                 <span class="icon">
                                   <i class="fa fa-sign-out"></i>
                                 </span>
                                 <span>注销</span>
                               </a>
                             {% else %}
-                                <a class="button is-primary is-inverted" href="{{ url_for('login')}}">
+                                <a class="button is-primary is-inverted" href="{{ url_for('front.login') }}">
                                 <span class="icon">
                                   <i class="fa fa-info"></i>
                                 </span>
                                 <span>登录</span>
                               </a>&nbsp;
-                              <a class="button is-primary is-inverted" href="{{ url_for('register')}}">
+                                <a class="button is-primary is-inverted" href="{{ url_for('front.register') }}">
                                 <span class="icon">
                                   <i class="fa fa-sign-in"></i>
                                 </span>
@@ -74,7 +75,7 @@
             </div>
         </header>
     </div>
-{#    <hr>#}
+    {#    <hr>#}
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
         <div class="container has-text-centered">

@@ -1,16 +1,11 @@
-#!usr/bin/env python  
-# -*- coding:utf-8 -*-  
-# @author: Johnathon Qiang
-# @file  : config.py 
-# @time  : 2017/11/06 10:33:42
-# @description：
-
 import os
 
 
 class BaseConfig(object):
     # session需要设置secret_key
     SECRET_KEY = os.urandom(24)
+    # session设置
+    USER_ID = 'ADSSGD'
 
     # 汉化后台flask-admin管理系统界面
     BABEL_DEFAULT_LOCALE = 'zh_CN'
