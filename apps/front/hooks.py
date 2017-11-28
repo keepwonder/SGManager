@@ -1,5 +1,5 @@
 from flask import session
-from app.front.models import User
+from apps.front.models import User
 from main import app
 from config import DevConfig
 

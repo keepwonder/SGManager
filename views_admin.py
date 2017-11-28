@@ -8,7 +8,7 @@ from flask_admin import Admin, AdminIndexView, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask_babelex import Babel
 from ext import db
-from app.front.models import User, Book
+from apps.front.models import User, Book
 from main import app
 
 babel = Babel(app)

@@ -2,7 +2,7 @@ from flask_script import Manager, Server
 from flask_migrate import Migrate, MigrateCommand
 from main import app
 from ext import db
-from app.front.models import User, Book
+from apps.front.models import User, Book
 
 manager = Manager(app)
 migrate = Migrate(app, db)
