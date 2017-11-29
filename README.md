@@ -1,1 +1,1 @@
-# 一个基于python3+flask的自我管理系统
+# 一个基于python3+flask的个人图书电影管理搜索系统

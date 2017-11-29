@@ -1,4 +1,8 @@
 /.idea/
 /__pycache__/
 /migrations/
+<<<<<<< HEAD
 /venv/
+=======
+config.py
+>>>>>>> 816d9f445ea8a9920c6429c281319a310b7489e0

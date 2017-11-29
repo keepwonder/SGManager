@@ -1,0 +1,27 @@
+{% extends 'front/base.html' %}
+{% from 'front/_macros.html' import static %}
+{% block title %}首页{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ static('css/index.css') }}">
+{% endblock %}
+
+{% block body %}
+    <form action="" method="post">
+        <div class="columns">
+            <div class="column is-6 is-offset-3">
+                <div class="has-text-centered">
+                    <p class="control">
+                        <input style="border-radius: 25px" class="input is-primary is-large "
+                               placeholder="请输入你要搜索的关键词...">
+                    </p>
+                    <br>
+                    <button type="submit" class="button is-primary is-medium lib-btn" style="border-radius: 25px">搜索图书
+                    </button>
+                    <button type="submit" class="button is-primary is-medium mv-btn" style="border-radius: 25px">搜索电影
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

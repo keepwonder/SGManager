@@ -1,0 +1,72 @@
+{% extends 'front/base.html' %}
+
+{% block title %}
+    注册
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <form action="{{ url_for('front.register') }}" method="post">
+{#    {{ form.csrf_token }}#}
+        <div class="columns">
+            <div class="column is-4 is-offset-4">
+                <div class="has-text-centered">
+                    <div class="login-body">
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" type="text" name="username" placeholder="请输入用户名">
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" type="password" name="password" placeholder="请输入密码">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" type="password" name="confirm" placeholder="请确认密码">
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input is-primary" type="email" name="email" placeholder="请输入邮箱地址">
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                    <i class="fa fa-check"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input is-primary" type="tel" name="phone" placeholder="请输入手机号码">
+                                <span class="icon is-small is-left">
+                                <i class="fa fa-phone"></i>
+                                </span>
+                            </p>
+                        </div>
+                        <br>
+                        {% for message in get_flashed_messages() %}
+                            <p style="color: red ;margin-bottom: 10px">{{ message }}</p>
+                        {% endfor %}
+                        <input class="button is-primary is-medium" type="submit" value="立即注册">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

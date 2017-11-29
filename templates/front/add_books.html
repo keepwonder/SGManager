@@ -1,0 +1,208 @@
+{% extends 'front/base.html' %}
+{% block title %}
+    添加图书信息
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add.css') }}">
+{% endblock %}
+{% block body %}
+    <form action="{{ url_for('front.add_book') }}" method="post">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <div class="add-body">
+                    <p class="add-title">图书录入</p>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">书名</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input name="book_name" class="input is-primary" type="text" placeholder="请输入书名">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">作者</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="book_author" class="input is-primary" type="text" placeholder="请输入作者">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">出版社</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="publisher" class="input is-primary" type="text" placeholder="请输入出版社">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">图书分类</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="book_category" class="input is-primary" type="text" placeholder="请输入分类建议">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">书籍载体</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field ">
+                                <div class="control">
+                                    <div class="select is-fullwidth is-primary">
+                                        <select name="is_paper">
+                                            <option>请选择</option>
+                                            <option>纸质书</option>
+                                            <option>电子书</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">定价</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="price" class="input is-primary" type="text" placeholder="请输入书籍定价">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">购入价</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="actual_price" class="input is-primary" type="text" placeholder="请输入买入价格">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">到手日期</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="receive_time" class="input is-primary" type="text" placeholder="请输入拿到书的日期">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">开始阅读</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="begin_read_time" class="input is-primary" type="text" placeholder="请输入开始阅读日期">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field  is-horizontal">
+                        <div class="field-label">
+                            <label class="label">结束阅读</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control ">
+                                    <input name="finish_read_time" class="input is-primary" type="text" placeholder="请输入完成阅读日期">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="haha" class="label">作者简介</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <textarea name="author_profile" class="textarea is-primary" placeholder="为作者添加一些简介吧..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="haha" class="label">图书简介</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <textarea name="book_profile" class="textarea is-primary" placeholder="简单介绍一下这本书吧..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">读后感想</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <textarea name="reading_notes" rows="10" class="textarea is-primary"
+                                              placeholder="读完了，记录一下感想吧..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                            <!-- Left empty for spacing -->
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary" type="submit">
+                                        保存
+                                    </button>
+                                    <a class="button is-light" type="submit" href="{{ url_for('front.list_book') }}">
+                                        取消
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
